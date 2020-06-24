@@ -1,0 +1,116 @@
+</head>
+
+<body class="d-flex flex-column h-100">
+
+    <!-- navbar start-->
+    <div class=wrapper>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark py-0">
+
+            <a class="navbar-brand" href="/">
+                <img src="/assets/logo_white.png" alt="brand logo" height="70" width="70">MaxHealth
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/featured">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/blog">Blog</a>
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <button class="btn btn-dark pl-0 pl-md-2 dropdown-toggle" type="button"
+                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                Category
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="/otc/find/Ayurveda">Ayurveda</a>
+                                <a class="dropdown-item" href="/otc/find/Fitness & Supplements">Fitness &
+                                    Supplements</a>
+                                <a class="dropdown-item" href="/otc/find/Sports & Gym Equipment">Sports & Gym
+                                    Equipment</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <form action="/search" method="POST" class="form-inline mr-auto">
+                    <div class="row my-2 my-md-3">
+                        <div class="col-10">
+                            <input class="form-control" type="search" name="searchText" placeholder="Search"
+                                aria-label="Search">
+                        </div>
+
+                        <div class="col-2">
+                            <button class="btn px-0 bg-dark text-white" type="submit"><span><i
+                                        class="fas fa-search"></i></span></button>
+                        </div>
+
+                    </div>
+                </form>
+
+                <!-- <div class="row">
+                    <div class="col-4 my-auto">
+                        <a class="nav-link" href="/login">Login</a>
+                    </div>
+                    <div class="col-4 my-auto">
+                        <a class="nav-link" href="/signup">Sign Up</a>
+                    </div>
+                    <div class="col-4 my-auto">
+                        <a class="nav-link" href="/login">Login</a>
+                    </div>
+
+                </div> -->
+
+                <ul class="navbar-nav">
+                    <% if(!currentUser){ %>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/signup">Sign Up</a>
+                    </li>
+                    <% }else{ %>
+
+                    <li class="nav-item active">
+                        <div class="dropdown">
+                            <button class="btn btn-dark pl-0 pl-md-2 dropdown-toggle" type="button"
+                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                Hi <%= currentUser.username %>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="/account">Your Account</a>
+                                <a class="dropdown-item" href="/orders">Orders History</a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <% if(currentUser.isAdmin){ %>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/otc/new">Add new product</a>
+                    </li>
+                    <% } %>
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                    <% } %>
+                    <li class="nav-item active">
+                        <a class="nav-link zoom" href="/cart">
+                            <span><i class="fas fa-shopping-cart"></i></span>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+
+        <!-- navbar end -->
